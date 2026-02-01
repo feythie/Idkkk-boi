@@ -2,29 +2,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Special Question</title>
+<title>THE OFFICIAL WEDDING EXPERIENCE</title>
 <style>
 body {
-    background-color: #E6D8FF;
+    background: linear-gradient(135deg, #E6D8FF, #F3E5FF);
     font-family: "Brush Script MT", cursive;
     text-align: center;
-    padding-top: 80px;
-}h1 { color: #5A2D82; font-size: 36px; }
+    padding-top: 60px;
+}h1 { color: #5A2D82; font-size: 32px; }
 
-button { background-color: #5A2D82; color: white; border: none; padding: 15px 30px; margin: 10px; font-size: 20px; cursor: pointer; border-radius: 10px; font-family: "Brush Script MT", cursive; }
+.question { margin-top: 30px; font-size: 24px; color: #4B1F6F; }
+
+button { background-color: #5A2D82; color: white; border: none; padding: 15px 30px; margin: 10px; font-size: 20px; cursor: pointer; border-radius: 15px; font-family: "Brush Script MT", cursive; transition: transform 0.2s; }
+
+button:hover { transform: scale(1.1); }
 
 #message { margin-top: 30px; font-size: 22px; color: #4B1F6F; }
 
-.confetti { position: fixed; top: 0; width: 10px; height: 10px; background-color: purple; animation: fall 3s linear infinite; }
+.hidden { display: none; }
+
+.confetti { position: fixed; top: 0; width: 10px; height: 10px; animation: fall 3s linear infinite; }
 
 @keyframes fall { 0% { transform: translateY(0); } 100% { transform: translateY(100vh); } } </style>
 
 </head>
-<body><h1>ZEE WANTS YOUR HAND IN MARRIAGE. WILL YOU ACCEPT?</h1><button onclick="yesClick()">YES</button> <button onclick="noClick()">NO</button>
+<body><h1>WELCOME TO THE MOST IMPORTANT WEBSITE OF YOUR LIFE</h1><div id="q1" class="question">
+    DO YOU THINK ZEE IS AWESOME?
+    <br>
+    <button onclick="next('q1','q2')">YES OBVIOUSLY</button>
+    <button onclick="nope()">NO</button>
+</div><div id="q2" class="question hidden">
+    WOULD YOU LIKE FREE SNACKS FOR LIFE?
+    <br>
+    <button onclick="next('q2','q3')">ABSOLUTELY</button>
+    <button onclick="nope()">NO THANKS</button>
+</div><div id="q3" class="question hidden">
+    DO YOU PROMISE TO LAUGH AT ZEE'S JOKES?
+    <br>
+    <button onclick="next('q3','q4')">I PROMISE</button>
+    <button onclick="nope()">MAYBE</button>
+</div><div id="q4" class="question hidden">
+    FINAL AND MOST SERIOUS QUESTION...
+    <br>
+    ZEE WANTS YOUR HAND IN MARRIAGE. WILL YOU ACCEPT?
+    <br>
+    <button onclick="yesClick()">YES YES YES</button>
+    <button onclick="nope()">NO</button>
+</div><div id="message"></div><script>
+function next(current, nextOne) {
+    document.getElementById(current).classList.add('hidden');
+    document.getElementById(nextOne).classList.remove('hidden');
+}
 
-<div id="message"></div><script>
-function noClick() {
-    document.getElementById("message").innerHTML = "THAT IS NOT AN OPTION";
+function nope() {
+    document.getElementById("message").innerHTML = "THAT ANSWER HAS BEEN REMOVED FOR BEING INCORRECT";
 }
 
 function yesClick() {
@@ -33,7 +64,7 @@ function yesClick() {
 }
 
 function startConfetti() {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 150; i++) {
         let confetti = document.createElement("div");
         confetti.className = "confetti";
         confetti.style.left = Math.random() * 100 + "vw";
@@ -48,7 +79,7 @@ function startConfetti() {
 }
 
 function getRandomColor() {
-    const colors = ["#5A2D82", "#9B59B6", "#D7BDE2", "#8E44AD", "#C39BD3"];
+    const colors = ["#5A2D82", "#9B59B6", "#D7BDE2", "#8E44AD", "#C39BD3", "#F5B7B1"];
     return colors[Math.floor(Math.random() * colors.length)];
 }
 </script></body>
