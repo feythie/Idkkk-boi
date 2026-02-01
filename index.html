@@ -2,22 +2,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE OFFICIAL WEDDING EXPERIENCE</title>
+<title>HELLO RAPHA</title>
 <style>
 body {
     background: linear-gradient(135deg, #E6D8FF, #F3E5FF);
-    font-family: "Brush Script MT", cursive;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    padding-top: 60px;
-}h1 { color: #5A2D82; font-size: 32px; }
+    padding-top: 50px;
+}h1 { color: #5A2D82; font-size: 28px; }
 
-.question { margin-top: 30px; font-size: 24px; color: #4B1F6F; }
+.question { margin-top: 25px; font-size: 22px; color: #4B1F6F; }
 
-button { background-color: #5A2D82; color: white; border: none; padding: 15px 30px; margin: 10px; font-size: 20px; cursor: pointer; border-radius: 15px; font-family: "Brush Script MT", cursive; transition: transform 0.2s; }
+button { background-color: #5A2D82; color: white; border: none; padding: 12px 25px; margin: 10px; font-size: 18px; cursor: pointer; border-radius: 12px; font-family: Arial, Helvetica, sans-serif; transition: transform 0.2s; }
 
 button:hover { transform: scale(1.1); }
 
-#message { margin-top: 30px; font-size: 22px; color: #4B1F6F; }
+#message { margin-top: 20px; font-size: 20px; color: #4B1F6F; min-height: 40px; }
 
 .hidden { display: none; }
 
@@ -26,36 +26,90 @@ button:hover { transform: scale(1.1); }
 @keyframes fall { 0% { transform: translateY(0); } 100% { transform: translateY(100vh); } } </style>
 
 </head>
-<body><h1>WELCOME TO THE MOST IMPORTANT WEBSITE OF YOUR LIFE</h1><div id="q1" class="question">
-    DO YOU THINK ZEE IS AWESOME?
+<body><h1>HELLO RAPHA! WELCOME TO THIS AMAZING FANTABULOUS PROJECT MADE BY ZEE FOR YOU! HAVE A SEAT HAVE A SEAT!</h1><div id="q1" class="question">
+    FIRST OF ALL IMPORTANT QUESTION: WHO ARE YOU?
     <br>
-    <button onclick="next('q1','q2')">YES OBVIOUSLY</button>
-    <button onclick="nope()">NO</button>
+    <button onclick="next('q1','q2')">RAPHA THE LEGEND</button>
+    <button onclick="sass()">A RANDOM STRANGER</button>
 </div><div id="q2" class="question hidden">
-    WOULD YOU LIKE FREE SNACKS FOR LIFE?
+    HOW AWESOME IS ZEE ON A SCALE OF 1 TO AMAZING?
     <br>
-    <button onclick="next('q2','q3')">ABSOLUTELY</button>
-    <button onclick="nope()">NO THANKS</button>
+    <button onclick="next('q2','q3')">BEYOND AMAZING</button>
+    <button onclick="sass()">JUST OK</button>
 </div><div id="q3" class="question hidden">
-    DO YOU PROMISE TO LAUGH AT ZEE'S JOKES?
+    DO YOU ENJOY SILLY WEBSITES MADE WITH LOVE?
     <br>
-    <button onclick="next('q3','q4')">I PROMISE</button>
-    <button onclick="nope()">MAYBE</button>
+    <button onclick="next('q3','q4')">YES VERY MUCH</button>
+    <button onclick="sass()">NOPE</button>
 </div><div id="q4" class="question hidden">
-    FINAL AND MOST SERIOUS QUESTION...
+    WOULD YOU LIKE UNLIMITED SNACKS?
+    <br>
+    <button onclick="next('q4','q5')">OBVIOUSLY YES</button>
+    <button onclick="sass()">I AM ON A DIET</button>
+</div><div id="q5" class="question hidden">
+    DO YOU AGREE THAT ZEE IS VERY COOL?
+    <br>
+    <button onclick="thinkingTime()">YES DUH</button>
+    <button onclick="sass()">MAYBE NOT</button>
+</div><div id="thinking" class="question hidden">
+    HMMM ZEE IS THINKING VERY HARD RIGHT NOW...
+    <br>
+    PLEASE HOLD WHILE ZEE JUDGES YOUR ANSWERS...
+    <br><br>
+    <button onclick="next('thinking','q6')">OK CONTINUE</button>
+</div><div id="q6" class="question hidden">
+    DO YOU PROMISE TO LAUGH AT BAD JOKES?
+    <br>
+    <button onclick="next('q6','q7')">I PROMISE</button>
+    <button onclick="sass()">I REFUSE</button>
+</div><div id="q7" class="question hidden">
+    WOULD YOU LIKE FUN ADVENTURES FOREVER?
+    <br>
+    <button onclick="next('q7','q8')">ABSOLUTELY</button>
+    <button onclick="sass()">SOUNDS EXHAUSTING</button>
+</div><div id="q8" class="question hidden">
+    DO YOU ACCEPT THAT ZEE IS ALWAYS RIGHT?
+    <br>
+    <button onclick="next('q8','q9')">YES OF COURSE</button>
+    <button onclick="sass()">UM NO</button>
+</div><div id="q9" class="question hidden">
+    ARE YOU READY FOR A VERY SERIOUS QUESTION?
+    <br>
+    <button onclick="next('q9','q10')">I WAS BORN READY</button>
+    <button onclick="sass()">I AM SCARED</button>
+</div><div id="q10" class="question hidden">
+    FINAL QUESTION OF LIFE...
     <br>
     ZEE WANTS YOUR HAND IN MARRIAGE. WILL YOU ACCEPT?
     <br>
     <button onclick="yesClick()">YES YES YES</button>
-    <button onclick="nope()">NO</button>
+    <button onclick="sass()">NO WAY</button>
 </div><div id="message"></div><script>
+const sassyMessages = [
+    "NAH BOI THAT IS NOT ALLOWED",
+    "ZEE IS CRYING AS YOU PICKED THAT",
+    "WRONG ANSWER TRY AGAIN BESTIE",
+    "EXCUSE YOU THAT BUTTON IS BROKEN",
+    "I PRETEND I DID NOT SEE THAT",
+    "ABSOLUTELY NOT ACCEPTED",
+    "THE AUDACITY OF THIS CHOICE",
+    "ZEE SHAKES HEAD DISAPPROVINGLY"
+];
+
+function sass() {
+    let msg = sassyMessages[Math.floor(Math.random() * sassyMessages.length)];
+    document.getElementById("message").innerHTML = msg;
+}
+
 function next(current, nextOne) {
     document.getElementById(current).classList.add('hidden');
     document.getElementById(nextOne).classList.remove('hidden');
+    document.getElementById("message").innerHTML = "";
 }
 
-function nope() {
-    document.getElementById("message").innerHTML = "THAT ANSWER HAS BEEN REMOVED FOR BEING INCORRECT";
+function thinkingTime() {
+    document.getElementById('q5').classList.add('hidden');
+    document.getElementById('thinking').classList.remove('hidden');
 }
 
 function yesClick() {
@@ -64,7 +118,7 @@ function yesClick() {
 }
 
 function startConfetti() {
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 180; i++) {
         let confetti = document.createElement("div");
         confetti.className = "confetti";
         confetti.style.left = Math.random() * 100 + "vw";
@@ -79,7 +133,7 @@ function startConfetti() {
 }
 
 function getRandomColor() {
-    const colors = ["#5A2D82", "#9B59B6", "#D7BDE2", "#8E44AD", "#C39BD3", "#F5B7B1"];
+    const colors = ["#5A2D82", "#9B59B6", "#D7BDE2", "#8E44AD", "#C39BD3", "#F5B7B1", "#FFD700"];
     return colors[Math.floor(Math.random() * colors.length)];
 }
 </script></body>
